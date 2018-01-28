@@ -35,6 +35,6 @@ while True:
     distance = (dst_x - src_x)**2 + (dst_y - src_y)**2
     distance = (distance ** 0.5)
     print('distance = ', distance)
-    jump(distance,540,1650,540,1650)
+    jump(distance,540+np.random.randint(-10,10),1650+np.random.randint(-10,10),540+np.random.randint(-10,10),1650+np.random.randint(-10,10))
     time.sleep(2.5)
     
