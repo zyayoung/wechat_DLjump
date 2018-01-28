@@ -97,3 +97,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+autojump.png
+ExperimentSpace/.DS_Store
+model.h5
+.DS_Store
