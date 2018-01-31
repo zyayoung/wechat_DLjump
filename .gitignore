@@ -101,3 +101,5 @@ autojump.png
 *.DS_Store
 model.h5
 *.png
+*.h5
+print_structure.py
