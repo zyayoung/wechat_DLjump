@@ -25,9 +25,9 @@
 
 - 验证了卷积神经网络解决此类问题的可行性
 - 方便修改的数据处理+网络训练脚本ExperimentSpace/CreatModel.ipynb(使用jupyter-notebook打开)
-- 预先采集的977个训练数据data.pkl.gz
+- 预先采集的2500个训练数据data.pkl.gz
 - 预先训练的模型model.h5
-- 全自动玩游戏的脚本play.py
+- 全自动玩游戏的脚本play.py(需要调整比例系数)
 
 ## clone之后该做什么？
 
