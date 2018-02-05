@@ -7,7 +7,7 @@
 这个项目的目的是尝试用神经网络判断位置，而不是为了刷分。如果你是为了在排行榜上排到第一才来的，那么请在github上找1k+stars的项目。
 
 目前的网络已经达到3500分的水平。
-[!example](https://raw.githubusercontent.com/zyayoung/image-repository/master/jump_example.png)
+![example](https://raw.githubusercontent.com/zyayoung/image-repository/master/jump_example.png)
 
 为1080p分辨率开发
 
