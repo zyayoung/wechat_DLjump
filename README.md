@@ -29,6 +29,41 @@
 - 预先训练的模型model.h5
 - 全自动玩游戏的脚本play.py(需要调整比例系数)
 
+## 数据预处理
+
+数据保存在ExperimentSpace/data.pkl.gz中
+
+数据读取方法：
+```
+f=gzip.open('data.pkl.gz')
+X_train,y_train = pickle.load(f)
+f.close()
+```
+
+数据简介：
+
+- 原始数据是2500张png截图，文件名包含训练需要的数据：编号,x,y,x,y
+- 对数据分别进行裁剪、缩放、边缘过滤、灰度
+```
+img = img.crop((0, 500, 1080, 1300))
+img = img.resize((img.width/resize_ratio, img.height/resize_ratio), Image.ANTIALIAS)
+img = img.filter(ImageFilter.CONTOUR).convert('L')
+img = np.array(img)/255.0
+```
+
+![example2](https://raw.githubusercontent.com/zyayoung/image-repository/master/jump_example2.png)
+
+- 打包成pickle.gz的形式
+```
+f=gzip.open('data.pkl.gz','wb')
+X_train = np.array(X_train,dtype='float32').reshape(-1,100,135,1)
+y_train = np.array(y_train,dtype='float32').reshape(-1,4)
+pickle.dump((X_train,y_train),f)
+f.close()
+```
+
+详见[CreatModel.ipynb](https://github.com/zyayoung/wechat_DLjump/blob/master/ExperimentSpace/CreatModel.ipynb)
+
 ## 我的网络结构
 
 ```
