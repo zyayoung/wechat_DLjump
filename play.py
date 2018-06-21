@@ -13,7 +13,7 @@ def getscreenshot():
     os.system('adb pull /sdcard/autojump.png .')
 
 def jump(distance,x,y,i,j):
-    press_time = distance * 1.45
+    press_time = distance * 1.38 + 30
     press_time = int(press_time)
     cmd = 'adb shell input swipe %d %d %d %d '%(x,y,i,j) + str(press_time)
     print(cmd)
@@ -22,7 +22,7 @@ def jump(distance,x,y,i,j):
 while True:
     getscreenshot()
     img = Image.open('autojump.png').crop((0, 500, 1080, 1300))
-    img = img.resize((img.width/8, img.height/8), Image.ANTIALIAS)
+    img = img.resize((int(img.width/8), int(img.height/8)), Image.ANTIALIAS)
     img = img.filter(ImageFilter.CONTOUR)
     img = np.array(img.convert('L'))*1.0/255
     
@@ -31,7 +31,7 @@ while True:
     src_y=pre[0][3]*800
     dst_x=pre[0][0]*1080
     dst_y=pre[0][1]*800
-    print src_x, src_y, dst_x, dst_y
+    print(src_x, src_y, dst_x, dst_y)
     distance = (dst_x - src_x)**2 + (dst_y - src_y)**2
     distance = (distance ** 0.5)
     print('distance = ', distance)
